@@ -81,6 +81,7 @@ ul.nav li a.active {
 
 .sections {
   clear: both;
+  padding: 0.5em 0.35em;
 }
 
 ul.nav li a .arrow {
