@@ -79,3 +79,7 @@ ul.nav li a.active {
 .sections {
   clear: both;
 }
+
+ul.nav li a .arrow {
+  font-size: 60%;
+}
