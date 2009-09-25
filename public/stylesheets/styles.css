@@ -8,9 +8,12 @@
   padding: 0;
 }
 
-pre, code, tt,
 body {
-  font: 12px/1.5 Menlo, Monaco, monospace;
+  font: 12px/1.5 'Lucida Grande', Helvetica, sans-serif;
+}
+
+pre, code, tt {
+  font-family: Menlo, Monaco, monospace;
 }
 
 p {
