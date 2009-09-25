@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Miso Regular";
+  src: url("../fonts/miso-regular.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,36 +18,64 @@ p {
   margin: 0.75em 0;
 }
 
+ul.nav li, h1 {
+  font-family: "Miso Regular", Helvetica, sans-serif;
+}
+h1 {
+  font-size: 600%;
+}
+
 span.sub {
   color: #999;
 }
 
 #world {
-  margin: 1em auto;
+  margin: 0 2em;
 }
 
-.section {
-  overflow: hidden;
+h1,
+ul.nav {
+  float: left;
+  line-height: 1.2;
 }
 
 span.special,
 code.big,
-h1 {
+ul.nav li a {
   color: #006699;
 }
 
 code.big,
-h1 {
+ul.nav li a {
   display: block;
-  padding: 0.3em;
-  font-size: 250%;
+  padding: 0.6em 0.3em 0 0.3em;
 }
 
-h1 {
-  width: 8em;
-  margin-right: 0.3em;
+ul.nav li {
+  font-size: 300%;
   float: left;
-  border-right: #999 1px solid;
-  text-align: right;
+  display: block;
+}
+
+ul.nav {
+  margin-left: 2.7em;
+}
+
+ul.nav li a {
+  padding: 0.9em 1.2em 0.05em 0.3em;
+  border-left: #999 1px solid;
   font-weight: bold;
+  text-decoration: none;
+}
+ul.nav li a:hover {
+  color: #006090;
+  background-color: #eee;
+}
+ul.nav li a.active {
+  color: #005588;
+  background-color: #ddd;
+}
+
+.sections {
+  clear: both;
 }

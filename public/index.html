@@ -5,44 +5,64 @@
     <title>babushka</title>
     <link href="stylesheets/styles.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="stylesheets/active4d.css" media="screen" rel="stylesheet" type="text/css" />
+
     <script src="javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      var show_page = function(a) {
+        $('ul.nav li a').removeClass('active');
+        $('.sections > div:visible').hide();
+        $('.sections > div#' + a.addClass('active').attr('href')).show();
+      };
+      $(function() {
+        show_page($('ul.nav li a[href=' + (document.location.hash || '#what') + ']'));
+        $('ul.nav li a[href^=#]').click(function() { show_page($(this)); });
+      })
+    </script>
   </head>
   <body>
-    <div id="world">
-      <div class='section'>
-        <h1>what</h1>
-        <p>nested dependencies. <span class='sub'>each one knows if it's met, and if not, how to meet.</span></p>
-        <p>special types of deps for package managers, compiling, config files, and such. <span class='sub'>really easy to extend babushka by inventing new types of deps.</span></p>
-      </div>
-      <div class='section'>
-        <h1>why</h1>
-        <p>system admin is time consuming. <span class='sub'>research, tweaking configs, troubleshooting, learning by experience.</span></p>
-        <p>invest that time in a way that makes it re-useable. <span class='special'>it's like a test suite for your system.</span></p>
-      </div>
-      <div class='example'>
-        <div class='dep'>
-          <pre class="active4d">dep <span class="String"><span class="String">'</span>sbt<span class="String">'</span></span> <span class="Keyword">do</span>
-  requires <span class="String"><span class="String">'</span>java<span class="String">'</span></span>
-  merge <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span> =&gt; <span class="String"><span class="String">'</span>0.5.4<span class="String">'</span></span>
-  met? { which <span class="String"><span class="String">'</span>sbt<span class="String">'</span></span> }
-  meet {
-    in_dir <span class="FunctionName">var</span>(<span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>install_path</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>default</span> =&gt; <span class="String"><span class="String">'</span>/usr/local<span class="String">'</span></span>) <span class="Keyword">do</span>
-      in_dir <span class="String"><span class="String">'</span>lib/sbt<span class="String">'</span></span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>create</span> =&gt; <span class="BuiltInConstant">true</span> <span class="Keyword">do</span>
-        download <span class="String"><span class="String">&quot;</span>http://simple-build-tool.googlecode.com/files/sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar<span class="String">&quot;</span></span>
-        shell <span class="String"><span class="String">&quot;</span>ln -sf sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar sbt-launcher.jar<span class="String">&quot;</span></span>
-      <span class="Keyword">end</span>
-      in_dir <span class="String"><span class="String">'</span>bin<span class="String">'</span></span> <span class="Keyword">do</span>
-        shell <span class="String"><span class="String">%Q{</span>echo '#!/bin/bash<span class="StringInterpolation">\n</span>java -Xmx512M -jar `dirname $0`/../lib/sbt/sbt-launcher.jar &quot;$@&quot;' &gt; sbt<span class="String">}</span></span>
-        shell <span class="String"><span class="String">'</span>chmod +x sbt<span class="String">'</span></span>
-      <span class="Keyword">end</span>
-    <span class="Keyword">end</span>
-  }
-<span class="Keyword">end</span></pre>
+    <div id='world'>
+      <h1>babushka</h1>
+      <!-- <img class='babushka doll' src="" alt="Babushka doll" /> -->
+      <ul class='nav'>
+        <li><a href="#what">what</a></li>
+        <li><a href="#why">why</a></li>
+        <li><a href="#how">how</a></li>
+        <li><a href="#can_haz">can haz?</a></li>
+        <li><a href="http://github.com/benhoskings/babushka">github</a></li>
+      </ul>
+      <div class='sections'>
+        <div id='what'>
+          <p>nested dependencies. <span class='sub'>each one knows if it's met, and if not, how to meet.</span></p>
+          <p>special types of deps for package managers, compiling, config files, and such. <span class='sub'>really easy to extend babushka by inventing new types of deps.</span></p>
         </div>
-      </div>
-      <div class='section'>
-        <h1>yes please</h1>
-        <code class="big">bash -c "`curl -L babushka.me/up`"</code>
+        <div id='why'>
+          <p>system admin is time consuming. <span class='sub'>research, tweaking configs, troubleshooting, learning by experience.</span></p>
+          <p>invest that time in a way that makes it re-useable. <span class='special'>it's like a test suite for your system.</span></p>
+        </div>
+        <div id='how'>
+          <div class='dep'>
+            <pre class="active4d">dep <span class="String"><span class="String">'</span>sbt<span class="String">'</span></span> <span class="Keyword">do</span>
+    requires <span class="String"><span class="String">'</span>java<span class="String">'</span></span>
+    merge <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span> =&gt; <span class="String"><span class="String">'</span>0.5.4<span class="String">'</span></span>
+    met? { which <span class="String"><span class="String">'</span>sbt<span class="String">'</span></span> }
+    meet {
+      in_dir <span class="FunctionName">var</span>(<span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>install_path</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>default</span> =&gt; <span class="String"><span class="String">'</span>/usr/local<span class="String">'</span></span>) <span class="Keyword">do</span>
+        in_dir <span class="String"><span class="String">'</span>lib/sbt<span class="String">'</span></span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>create</span> =&gt; <span class="BuiltInConstant">true</span> <span class="Keyword">do</span>
+          download <span class="String"><span class="String">&quot;</span>http://simple-build-tool.googlecode.com/files/sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar<span class="String">&quot;</span></span>
+          shell <span class="String"><span class="String">&quot;</span>ln -sf sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar sbt-launcher.jar<span class="String">&quot;</span></span>
+        <span class="Keyword">end</span>
+        in_dir <span class="String"><span class="String">'</span>bin<span class="String">'</span></span> <span class="Keyword">do</span>
+          shell <span class="String"><span class="String">%Q{</span>echo '#!/bin/bash<span class="StringInterpolation">\n</span>java -Xmx512M -jar `dirname $0`/../lib/sbt/sbt-launcher.jar &quot;$@&quot;' &gt; sbt<span class="String">}</span></span>
+          shell <span class="String"><span class="String">'</span>chmod +x sbt<span class="String">'</span></span>
+        <span class="Keyword">end</span>
+      <span class="Keyword">end</span>
+    }
+  <span class="Keyword">end</span></pre>
+          </div>
+        </div>
+        <div id='can_haz'>
+          <code class="big">bash -c "`curl -L babushka.me/up`"</code>
+        </div>
       </div>
     </div>
   </body>
