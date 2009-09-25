@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+pre, code, tt,
+body {
+  font: 12px/1.5 Menlo, Monaco, monospace;
+}
+
+p {
+  display: block;
+  margin: 0.75em 0;
+}
+
+span.sub {
+  color: #999;
+}
+
+#world {
+  margin: 1em auto;
+}
+
+.section {
+  overflow: hidden;
+}
+
+span.special,
+code.big,
+h1 {
+  color: #006699;
+}
+
+code.big,
+h1 {
+  display: block;
+  padding: 0.3em;
+  font-size: 250%;
+}
+
+h1 {
+  width: 8em;
+  margin-right: 0.3em;
+  float: left;
+  border-right: #999 1px solid;
+  text-align: right;
+  font-weight: bold;
+}
