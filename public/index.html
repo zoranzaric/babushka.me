@@ -7,11 +7,20 @@
     <link href="stylesheets/active4d.css" media="screen" rel="stylesheet" type="text/css" />
 
     <script src="javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascripts/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
       var show_page = function(a) {
-        $('ul.nav li a').removeClass('active');
+        $('ul.nav li a').removeClass('active').animate(
+          {'padding-top': '1.7em', color: '#069'},
+          {queue: false, duration: 200}
+        );
         $('.sections > div:visible').hide();
-        $('.sections > div#' + a.addClass('active').attr('href')).show();
+        $('.sections > div#' +
+          a.addClass('active').animate(
+            {'padding-top': '2.6em', color: '#000'},
+            {queue: false, duration: 200}
+          ).attr('href')
+        ).show();
       };
       var domready_nav = function() {
         $('ul.nav li a[href^=#]').click(function() { show_page($(this)); });
@@ -32,15 +41,19 @@
     </script>
   </head>
   <body>
-    <div id='world'>
-      <h1>babushka</h1>
-      <!-- <img class='babushka doll' src="" alt="Babushka doll" /> -->
-      <ul class='nav'>
-        <li><a href="#what">what</a></li>
-        <li><a href="#how">how</a></li>
-        <li><a href="#can_haz">can haz?</a></li>
-        <li><a href="http://github.com/benhoskings/babushka"><span class='arrow'>↪</span> github</a></li>
-      </ul>
+    <div id='wr_world'><div id='world'>
+      <div class="header">
+        <div class="h1">
+          <h1>babushka</h1>
+        </div>
+        <!-- <img class='babushka doll' src="" alt="Babushka doll" /> -->
+        <ul class='nav'>
+          <li><a href="#what">what</a></li>
+          <li><a href="#how">how</a></li>
+          <li><a href="#can_haz">can haz?</a></li>
+          <li><a href="http://github.com/benhoskings/babushka"><span class='arrow'>↪</span> github</a></li>
+        </ul>
+      </div>
       <div class='sections'>
         <div id='what'>
           <p>nested dependencies. <span class='sub'>each one knows if it's met, and if not, how to meet.</span></p>
@@ -88,6 +101,6 @@
           <p>If you'd prefer to install manually or just check out the code, check <a href="http://github.com/benhoskings/babushka">the github page</a> for the repo URL.</p>
         </div>
       </div>
-    </div>
+    </div></div>
   </body>
 </html>
