@@ -18,7 +18,7 @@ pre, code, tt {
 
 p {
   display: block;
-  margin: 0.75em 0;
+  margin: 1.5em 0;
 }
 
 ul.nav li, h1 {
@@ -26,6 +26,17 @@ ul.nav li, h1 {
 }
 h1 {
   font-size: 600%;
+}
+pre.big {
+  overflow: hidden;
+}
+pre.big code {
+  display: block;
+  float: left;
+  font-size: 200%;
+  padding: 0 0.2em;
+  background-color: #eee;
+  border-left: #999 1px solid;
 }
 
 span.sub {
@@ -42,13 +53,14 @@ ul.nav {
   line-height: 1.2;
 }
 
-span.special,
-code.big,
-ul.nav li a {
+span.special {
   color: #006699;
 }
+pre.big code,
+ul.nav li a {
+  color: #555;
+}
 
-code.big,
 ul.nav li a {
   display: block;
   padding: 0.6em 0.3em 0 0.3em;
@@ -74,9 +86,13 @@ ul.nav li a:hover {
   color: #006090;
   background-color: #eee;
 }
-ul.nav li a.active {
+ul.nav li a:active {
   color: #005588;
   background-color: #ddd;
+}
+ul.nav li a.active {
+  color: #fff;
+  background-color: #6dacd4;
 }
 
 .sections {
