@@ -39,22 +39,22 @@
         <div id='how'>
           <div class='dep'>
             <pre class="active4d">dep <span class="String"><span class="String">'</span>sbt<span class="String">'</span></span> <span class="Keyword">do</span>
-    requires <span class="String"><span class="String">'</span>java<span class="String">'</span></span>
-    merge <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span> =&gt; <span class="String"><span class="String">'</span>0.5.4<span class="String">'</span></span>
-    met? { which <span class="String"><span class="String">'</span>sbt<span class="String">'</span></span> }
-    meet {
-      in_dir <span class="FunctionName">var</span>(<span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>install_path</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>default</span> =&gt; <span class="String"><span class="String">'</span>/usr/local<span class="String">'</span></span>) <span class="Keyword">do</span>
-        in_dir <span class="String"><span class="String">'</span>lib/sbt<span class="String">'</span></span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>create</span> =&gt; <span class="BuiltInConstant">true</span> <span class="Keyword">do</span>
-          download <span class="String"><span class="String">&quot;</span>http://simple-build-tool.googlecode.com/files/sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar<span class="String">&quot;</span></span>
-          shell <span class="String"><span class="String">&quot;</span>ln -sf sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar sbt-launcher.jar<span class="String">&quot;</span></span>
-        <span class="Keyword">end</span>
-        in_dir <span class="String"><span class="String">'</span>bin<span class="String">'</span></span> <span class="Keyword">do</span>
-          shell <span class="String"><span class="String">%Q{</span>echo '#!/bin/bash<span class="StringInterpolation">\n</span>java -Xmx512M -jar `dirname $0`/../lib/sbt/sbt-launcher.jar &quot;$@&quot;' &gt; sbt<span class="String">}</span></span>
-          shell <span class="String"><span class="String">'</span>chmod +x sbt<span class="String">'</span></span>
-        <span class="Keyword">end</span>
+  requires <span class="String"><span class="String">'</span>java<span class="String">'</span></span>
+  merge <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span> =&gt; <span class="String"><span class="String">'</span>0.5.4<span class="String">'</span></span>
+  met? { which <span class="String"><span class="String">'</span>sbt<span class="String">'</span></span> }
+  meet {
+    in_dir <span class="FunctionName">var</span>(<span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>install_path</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>default</span> =&gt; <span class="String"><span class="String">'</span>/usr/local<span class="String">'</span></span>) <span class="Keyword">do</span>
+      in_dir <span class="String"><span class="String">'</span>lib/sbt<span class="String">'</span></span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>create</span> =&gt; <span class="BuiltInConstant">true</span> <span class="Keyword">do</span>
+        download <span class="String"><span class="String">&quot;</span>http://simple-build-tool.googlecode.com/files/sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar<span class="String">&quot;</span></span>
+        shell <span class="String"><span class="String">&quot;</span>ln -sf sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar sbt-launcher.jar<span class="String">&quot;</span></span>
       <span class="Keyword">end</span>
-    }
-  <span class="Keyword">end</span></pre>
+      in_dir <span class="String"><span class="String">'</span>bin<span class="String">'</span></span> <span class="Keyword">do</span>
+        shell <span class="String"><span class="String">%Q{</span>echo '#!/bin/bash<span class="StringInterpolation">\n</span>java -Xmx512M -jar `dirname $0`/../lib/sbt/sbt-launcher.jar &quot;$@&quot;' &gt; sbt<span class="String">}</span></span>
+        shell <span class="String"><span class="String">'</span>chmod +x sbt<span class="String">'</span></span>
+      <span class="Keyword">end</span>
+    <span class="Keyword">end</span>
+  }
+<span class="Keyword">end</span></pre>
           </div>
         </div>
         <div id='can_haz'>
