@@ -87,3 +87,11 @@ ul.nav li a.active {
 ul.nav li a .arrow {
   font-size: 60%;
 }
+
+.bootstrap_select {
+  float: left;
+}
+.bootstrap_select label {
+  padding-right: 1em;
+  font-weight: bold;
+}

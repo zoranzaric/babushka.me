@@ -13,9 +13,21 @@
         $('.sections > div:visible').hide();
         $('.sections > div#' + a.addClass('active').attr('href')).show();
       };
-      $(function() {
-        show_page($('ul.nav li a[href=' + (document.location.hash || '#what') + ']'));
+      var domready_nav = function() {
         $('ul.nav li a[href^=#]').click(function() { show_page($(this)); });
+        $('ul.nav li a[href=' + (document.location.hash || '#what') + ']').click();
+      }
+      var show_bootstrap_option = function(name) {
+        $('.bootstrap_option').hide();
+        $('.bootstrap_option.' + name).show();
+      }
+      var domready_bootstrap_select = function() {
+        $('.bootstrap_select input').click(function() { show_bootstrap_option($(this).attr('value')) });
+        $('.bootstrap_select input[value=curl]').click();
+      }
+      $(function() {
+        domready_nav();
+        domready_bootstrap_select();
       })
     </script>
   </head>
@@ -58,7 +70,22 @@
           </div>
         </div>
         <div id='can_haz'>
-          <code class="big">bash -c "`curl -L babushka.me/up`"</code>
+          <p>You can install babushka on your system, no matter what state it's in, using <code>babushka.me/up</code>. That's a script that knows enough to install ruby if required (babushka's only runtime dependency), and then download a temporary babushka that knows how to do the proper install.</p>
+          <div class='bootstrap_select'>
+            <form>
+              <input type='radio' id='bootstrap_curl' name='bootstrap_select' value='curl' />
+              <label for='bootstrap_curl'>curl</label>
+              <input type='radio' id='bootstrap_wget' name='bootstrap_select' value='wget' />
+              <label for='bootstrap_wget'>wget</label>
+            </form>
+          </div>
+          <p>New Macs have curl, stock Ubuntu has wget. </p>
+
+          <pre class="big bootstrap_option curl"><code>bash -c "`curl -L babushka.me/up`"</code></pre>
+          <pre class="big bootstrap_option wget"><code>bash -c "`wget -O - babushka.me/up`"</code></pre>
+
+          <p>It's the perfect way to get started on a new server, or on your new laptop, since it can literally be the first command you run on the machine.</p>
+          <p>If you'd prefer to install manually or just check out the code, check <a href="http://github.com/benhoskings/babushka">the github page</a> for the repo URL.</p>
         </div>
       </div>
     </div>
