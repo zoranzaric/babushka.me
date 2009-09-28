@@ -8,6 +8,11 @@
 
     <script src="javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
+      var on_show_page = function() {
+        console.log('on show page');
+        $('.sections > div:hidden .container').hide();
+        $('.sections > div:visible .container:hidden').show();
+      }
       var show_page = function(a) {
         $('ul.nav li a').removeClass('active').animate(
           {
@@ -21,7 +26,7 @@
             {
               'padding-top': $('.header h1').height() - (a.height() + parseInt(a.css('padding-bottom'))) + 'px',
               color: '#000'},
-            {queue: false, duration: 300}
+            300, on_show_page
           ).attr('href')
         ).show();
       };
@@ -29,6 +34,7 @@
         $('ul.nav li a[href^=#]').click(function() { show_page($(this)); });
         if (document.location.hash == '') {
           $('.sections > div:visible').hide();
+          on_show_page();
         } else {
           $('ul.nav li a[href=' + document.location.hash + ']').click();
         }
@@ -62,7 +68,9 @@
       </div>
       <div class='sections'>
         <div id='demo'>
+          <div class='container'>
 <object width="600" height="405"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="600" height="405"></object>
+          </div>
         </div>
         <div id='get_it'>
           <p>You can install babushka on your system, no matter what state it's in, using <code>babushka.me/up</code>. That's a script that knows enough to install ruby if required (babushka's only runtime dependency), and then download a temporary babushka that knows how to do the proper install.</p>
