@@ -48,21 +48,22 @@ span.sub {
 
 #wr_world {
   margin: 0 2em;
+  position: fixed;
+  top: 0;
+  bottom: 0.5em;
+  border-bottom: #000 0.5em solid;
 }
 
 #world {
   margin: 0.5em auto;
   border-top: #000 0.5em solid;
-  border-bottom: #000 0.5em solid;
   width: 56em;
-  height: 34.61em;
 }
 
 .header {
   overflow: hidden;
 /*  border-top: #000 1px solid;*/
   border-bottom: #000 1px solid;
-  margin-bottom: 0.9em;
 }
 
 .h1,
@@ -112,6 +113,18 @@ ul.nav li a .arrow {
 
 .sections {
   clear: both;
+  border-bottom: #000 1px solid;
+}
+.sections #what,
+.sections #get_it {
+  margin: 0 0.2em;
+}
+.sections #demo {
+  background-color: #000;
+}
+.sections #demo object {
+  display: block;
+  margin: 0 auto;
 }
 
 .bootstrap_select {

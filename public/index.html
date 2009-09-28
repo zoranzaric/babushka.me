@@ -49,8 +49,8 @@
         <!-- <img class='babushka doll' src="" alt="Babushka doll" /> -->
         <ul class='nav'>
           <li><a href="#what">what</a></li>
-          <li><a href="#how">how</a></li>
-          <li><a href="#can_haz">can haz?</a></li>
+          <li><a href="#demo">demo</a></li>
+          <li><a href="#get_it">get it</a></li>
           <li><a href="http://github.com/benhoskings/babushka"><span class='arrow'>↪</span> github</a></li>
         </ul>
       </div>
@@ -61,28 +61,10 @@
           <p>system admin is time consuming. <span class='sub'>research, tweaking configs, troubleshooting, learning by experience.</span></p>
           <p>invest that time in a way that makes it re-useable. <span class='special'>it's like a test suite for your system.</span></p>
         </div>
-        <div id='how'>
-          <div class='dep'>
-            <pre class="active4d">dep <span class="String"><span class="String">'</span>sbt<span class="String">'</span></span> <span class="Keyword">do</span>
-  requires <span class="String"><span class="String">'</span>java<span class="String">'</span></span>
-  merge <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span> =&gt; <span class="String"><span class="String">'</span>0.5.4<span class="String">'</span></span>
-  met? { which <span class="String"><span class="String">'</span>sbt<span class="String">'</span></span> }
-  meet {
-    in_dir <span class="FunctionName">var</span>(<span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>install_path</span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>default</span> =&gt; <span class="String"><span class="String">'</span>/usr/local<span class="String">'</span></span>) <span class="Keyword">do</span>
-      in_dir <span class="String"><span class="String">'</span>lib/sbt<span class="String">'</span></span>, <span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>create</span> =&gt; <span class="BuiltInConstant">true</span> <span class="Keyword">do</span>
-        download <span class="String"><span class="String">&quot;</span>http://simple-build-tool.googlecode.com/files/sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar<span class="String">&quot;</span></span>
-        shell <span class="String"><span class="String">&quot;</span>ln -sf sbt-launcher-<span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="StringInterpolation"><span class="FunctionName">var</span></span><span class="StringInterpolation">(</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>versions</span><span class="StringInterpolation">)</span><span class="StringInterpolation">[</span><span class="UserDefinedConstant"><span class="UserDefinedConstant">:</span>sbt</span><span class="StringInterpolation">]</span><span class="StringInterpolation">}</span></span>.jar sbt-launcher.jar<span class="String">&quot;</span></span>
-      <span class="Keyword">end</span>
-      in_dir <span class="String"><span class="String">'</span>bin<span class="String">'</span></span> <span class="Keyword">do</span>
-        shell <span class="String"><span class="String">%Q{</span>echo '#!/bin/bash<span class="StringInterpolation">\n</span>java -Xmx512M -jar `dirname $0`/../lib/sbt/sbt-launcher.jar &quot;$@&quot;' &gt; sbt<span class="String">}</span></span>
-        shell <span class="String"><span class="String">'</span>chmod +x sbt<span class="String">'</span></span>
-      <span class="Keyword">end</span>
-    <span class="Keyword">end</span>
-  }
-<span class="Keyword">end</span></pre>
-          </div>
+        <div id='demo'>
+<object width="600" height="405"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="600" height="405"></embed></object>
         </div>
-        <div id='can_haz'>
+        <div id='get_it'>
           <p>You can install babushka on your system, no matter what state it's in, using <code>babushka.me/up</code>. That's a script that knows enough to install ruby if required (babushka's only runtime dependency), and then download a temporary babushka that knows how to do the proper install.</p>
           <div class='bootstrap_select'>
             <form>
