@@ -59,13 +59,20 @@ span.sub {
 #world {
   margin: 0.5em auto;
   border-top: #000 0.5em solid;
-  border-bottom: #000 0.5em solid;
   width: 56em;
 }
 
 .header {
   overflow: hidden;
   border-bottom: #000 1px solid;
+}
+
+.footer {
+  text-align: right;
+  padding: 0.2em;
+}
+.footer span {
+  font-size: 11px;
 }
 
 .h1,
