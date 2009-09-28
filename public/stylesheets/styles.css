@@ -13,7 +13,7 @@ pre, code, tt {
 
 p {
   display: block;
-  margin: 0.9em 0;
+  margin: 1em 0;
 }
 
 hr {
@@ -54,15 +54,12 @@ span.sub {
 
 #wr_world {
   margin: 0 2em;
-  position: fixed;
-  top: 0;
-  bottom: 0.5em;
-  border-bottom: #000 0.5em solid;
 }
 
 #world {
   margin: 0.5em auto;
   border-top: #000 0.5em solid;
+  border-bottom: #000 0.5em solid;
   width: 56em;
 }
 
@@ -104,7 +101,7 @@ ul.nav li a .arrow {
 
 .sections {
   clear: both;
-  border-bottom: #000 1px solid;
+  padding: 0.2em 0;
 }
 .sections p,
 .sections .bootstrap_select {
