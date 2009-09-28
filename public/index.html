@@ -11,14 +11,18 @@
     <script type="text/javascript" charset="utf-8">
       var show_page = function(a) {
         $('ul.nav li a').removeClass('active').animate(
-          {'padding-top': '1.7em', color: '#069'},
-          {queue: false, duration: 200}
+          {
+            'padding-top': (($('.header h1').height() - (a.height() + parseInt(a.css('padding-bottom')))) / 1.618) + 'px',
+            color: '#000'},
+          {queue: false, duration: 300}
         );
         $('.sections > div:visible').hide();
         $('.sections > div#' +
           a.addClass('active').animate(
-            {'padding-top': '2.6em', color: '#000'},
-            {queue: false, duration: 200}
+            {
+              'padding-top': $('.header h1').height() - (a.height() + parseInt(a.css('padding-bottom'))) + 'px',
+              color: '#000'},
+            {queue: false, duration: 300}
           ).attr('href')
         ).show();
       };
