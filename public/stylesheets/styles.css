@@ -25,6 +25,10 @@ p {
   margin: 1em 0;
 }
 
+a {
+  color: #000;
+  font-weight: bold;
+}
 hr {
   margin: 0.2em 0;
   border: none;
@@ -36,7 +40,6 @@ h1 {
   letter-spacing: -0.04em;
 }
 h1 a {
-  color: #000;
   text-decoration: none;
 }
 h1 a:hover {
