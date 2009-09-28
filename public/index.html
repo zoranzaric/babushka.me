@@ -15,7 +15,7 @@
       var show_page = function(a) {
         $('ul.nav li a').removeClass('active').animate(
           {
-            'padding-top': (($('.header h1').height() - (a.height() + parseInt(a.css('padding-bottom')))) / 1.618) + 'px',
+            'paddingTop': (($('.header h1').height() - (a.height() + parseInt(a.css('paddingBottom')))) / 1.618) + 'px',
             color: '#000'},
           {queue: false, duration: 300}
         );
@@ -23,7 +23,7 @@
         $('.sections > div#' +
           a.addClass('active').animate(
             {
-              'padding-top': $('.header h1').height() - (a.height() + parseInt(a.css('padding-bottom'))) + 'px',
+              'paddingTop': $('.header h1').height() - (a.height() + parseInt(a.css('paddingBottom'))) + 'px',
               color: '#000'},
             300, on_show_page
           ).attr('href')
