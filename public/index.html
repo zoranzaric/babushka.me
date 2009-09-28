@@ -24,7 +24,11 @@
       };
       var domready_nav = function() {
         $('ul.nav li a[href^=#]').click(function() { show_page($(this)); });
-        $('ul.nav li a[href=' + (document.location.hash || '#what') + ']').click();
+        if (document.location.hash == '') {
+          $('.sections > div:visible').hide();
+        } else {
+          $('ul.nav li a[href=' + document.location.hash + ']').click();
+        }
       }
       var show_bootstrap_option = function(name) {
         $('.bootstrap_option').hide();
@@ -48,21 +52,14 @@
         </div>
         <!-- <img class='babushka doll' src="" alt="Babushka doll" /> -->
         <ul class='nav'>
-          <li><a href="#what">what</a></li>
           <li><a href="#demo">demo</a></li>
           <li><a href="#get_it">get it</a></li>
           <li><a href="http://github.com/benhoskings/babushka"><span class='arrow'>↪</span> github</a></li>
         </ul>
       </div>
       <div class='sections'>
-        <div id='what'>
-          <p>nested dependencies. <span class='sub'>each one knows if it's met, and if not, how to meet.</span></p>
-          <p>special types of deps for package managers, compiling, config files, and such. <span class='sub'>really easy to extend babushka by inventing new types of deps.</span></p>
-          <p>system admin is time consuming. <span class='sub'>research, tweaking configs, troubleshooting, learning by experience.</span></p>
-          <p>invest that time in a way that makes it re-useable. <span class='special'>it's like a test suite for your system.</span></p>
-        </div>
         <div id='demo'>
-<object width="600" height="405"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="600" height="405"></embed></object>
+<object width="600" height="405"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6782671&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="600" height="405"></object>
         </div>
         <div id='get_it'>
           <p>You can install babushka on your system, no matter what state it's in, using <code>babushka.me/up</code>. That's a script that knows enough to install ruby if required (babushka's only runtime dependency), and then download a temporary babushka that knows how to do the proper install.</p>

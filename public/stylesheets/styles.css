@@ -35,11 +35,10 @@ pre.big {
 }
 pre.big code {
   display: block;
-  float: left;
   font-size: 2em;
   padding: 0 0.2em;
-  background-color: #eee;
-  border-left: #999 1px solid;
+  color: #0ad;
+  background-color: #000;
 }
 
 span.sub {
@@ -62,7 +61,6 @@ span.sub {
 
 .header {
   overflow: hidden;
-/*  border-top: #000 1px solid;*/
   border-bottom: #000 1px solid;
 }
 
@@ -75,16 +73,6 @@ ul.nav {
   width: 24em;
 }
 
-span.special {
-  color: #006699;
-}
-pre.big code {
-  color: #555;
-}
-
-ul.nav {
-/*  margin-top: 1.3em;*/
-}
 ul.nav li {
   font-size: 150%;
   float: left;
@@ -94,7 +82,6 @@ ul.nav li {
 ul.nav li a {
   display: block;
   padding: 0.3em;
-/*  margin-bottom: 1.5em;*/
   border-left: #222 1px solid;
   color: #000;
   font-weight: bold;
@@ -104,9 +91,6 @@ ul.nav li a {
 ul.nav li a:hover {
 /*  text-shadow: #007722 0px 0px 5px;*/
 }
-ul.nav li a.active {
-
-}
 ul.nav li a .arrow {
   font-size: 80%;
 }
@@ -115,9 +99,10 @@ ul.nav li a .arrow {
   clear: both;
   border-bottom: #000 1px solid;
 }
-.sections #what,
-.sections #get_it {
-  margin: 0 0.2em;
+.sections p,
+.sections .bootstrap_select {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
 }
 .sections #demo {
   background-color: #000;
