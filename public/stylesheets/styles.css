@@ -11,15 +11,24 @@ pre, code, tt {
   font-family: Menlo, Monaco, monospace;
 }
 
+ul {
+  list-style-type: none;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 p {
   display: block;
   margin: 1em 0;
 }
 
 hr {
-  margin: 0.5em 0;
+  margin: 0.2em 0;
   border: none;
-  border-top: #000 0.5em solid;
+  border-top: #000 1px solid;
 }
 
 h1 {
@@ -109,13 +118,14 @@ ul.nav li a .arrow {
 .sections {
   clear: both;
   padding: 0.2em 0;
+  border-bottom: #000 0.5em solid;
 }
 .sections p,
 .sections .bootstrap_select {
   margin-left: 0.2em;
   margin-right: 0.2em;
 }
-.sections #demo {
+.sections #demo .video {
   background-color: #000;
 }
 .sections #demo object {
