@@ -45,23 +45,16 @@ h1 a {
 h1 a:hover {
   text-shadow: #000 0 0 5px;
 }
-h1, ul.nav li a {
+h1, .nav li a {
   line-height: 1.2;
 }
 
-pre.big {
-  overflow: hidden;
-}
 pre.big code {
   display: block;
   font-size: 2em;
   padding: 0 0.2em;
   color: #0ad;
   background-color: #000;
-}
-
-span.sub {
-  color: #999;
 }
 
 #wr_world {
