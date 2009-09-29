@@ -12,12 +12,15 @@
         $('.sections > div:hidden .container').hide();
         $('.sections > div:visible .container:hidden').show();
       }
-      var show_page = function(a) {
+      var reset_nav_links = function(a) {
         $('ul.nav li a').removeClass('active').animate(
           {
             'paddingTop': (($('.header h1').height() - (a.height() + parseInt(a.css('paddingBottom')))) / 1.4) + 'px'},
           {queue: false, duration: 300}
         );
+      }
+      var show_page = function(a) {
+        reset_nav_links(a);
         $('.sections > div:visible').hide();
         $('.sections > div#' +
           a.addClass('active').animate(
@@ -31,6 +34,7 @@
         $('ul.nav li a[href^=#]').click(function() { show_page($(this)); });
         if (document.location.hash == '') {
           $('.sections > div:visible').hide();
+          reset_nav_links($('ul.nav li a:first'));
           on_show_page();
         } else {
           $('ul.nav li a[href=' + document.location.hash + ']').click();
