@@ -43,9 +43,15 @@
         $('.bootstrap_select input').click(function() { show_bootstrap_option($(this).attr('value')) });
         $('.bootstrap_select input[value=curl]').click();
       }
+      var select_bootstrap_on_click = function() {
+        $('.bootstrap_option input').click(function() {
+          $(this).select();
+        });
+      };
       $(function() {
         domready_nav();
         domready_bootstrap_select();
+        select_bootstrap_on_click();
       })
     </script>
   </head>
