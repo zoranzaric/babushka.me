@@ -7,7 +7,7 @@ body {
   font: 12px/1.5 Helvetica, sans-serif;
 }
 
-pre, code, tt {
+pre, code, tt, .bootstrap_option input {
   font-family: Menlo, Monaco, monospace;
 }
 
@@ -49,12 +49,29 @@ h1, .nav li a {
   line-height: 1.2;
 }
 
-pre.big code {
-  display: block;
-  font-size: 2em;
-  padding: 0 0.2em;
-  color: #0ad;
+.bootstrap_option {
+  padding: 0.4em 0.4em;
+  overflow: hidden;
+}
+.bootstrap_option, .bootstrap_option input {
+  line-height: 1.2;
   background-color: #000;
+}
+.bootstrap_option input {
+  float: left;
+  font-size: 2em;
+  color: #0ad;
+}
+
+.bootstrap_option input {
+  border: none;
+  display: block;
+}
+.bootstrap_option.curl input {
+  width: 20em;
+}
+.bootstrap_option.wget input {
+  width: 21.2em;
 }
 
 #wr_world {
