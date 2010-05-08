@@ -2,7 +2,8 @@ class Run < ActiveRecord::Base
 
   belongs_to :dep
 
-  validates_inclusion_of :dep, :result, :in => %w[ok fail error]
+  validates_presence_of :dep
+  validates_inclusion_of :result, :in => %w[ok fail error]
 
   scope :succeeded, where(:result => 'ok')
   scope :failed, where(:result => 'failed')
