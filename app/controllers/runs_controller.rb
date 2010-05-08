@@ -1,15 +1,16 @@
 class RunsController < ApplicationController
-  def create
-    @run = Run.new(params[:run])
+  respond_to :json
 
-    respond_to do |format|
-      if @run.save
-        format.html { redirect_to(@run, :notice => 'Run was successfully created.') }
-        format.xml  { render :xml => @run, :status => :created, :location => @run }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @run.errors, :status => :unprocessable_entity }
-      end
+  def create
+    @run = Run.new({
+      :result => params[:result],
+      :dep_name => params[:dep_name],
+      :source_url => params[:source_url]
+    })
+    if @run.save
+      respond_to {|format| format.json { render :json => @run } }
+    else
+      respond_to {|format| format.json { render :json => @run, :status => 406 } }
     end
   end
 end
