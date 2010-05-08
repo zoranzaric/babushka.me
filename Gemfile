@@ -7,6 +7,8 @@ gem 'rails', :git => '/Users/ben/code/rails'
 
 gem 'pg'
 
+gem 'hirb'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
