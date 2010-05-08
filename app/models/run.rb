@@ -11,14 +11,10 @@ class Run < ActiveRecord::Base
   scope :this_week, where(["created_at >= ? AND created_at < ?", Time.now - 1.week, Time.now])
 
   attr_accessor :dep_name, :source_url
+  before_validation :load_dep_and_source
 
-  validate_on_create :valid_dep?
-  validate_on_create :valid_source?
-
-  def valid_dep?
-    (dep = Dep.find_or_create_by_name(dep_name)).valid?
-  end
-  def valid_source?
-    (dep.source = Source.find_or_create_by_url(source_url)).valid?
+  def load_dep_and_source
+    existing_source = Source.find_or_create_by_url(source_url)
+    self.dep = existing_source.deps.find_or_create_by_name(dep_name)
   end
 end
