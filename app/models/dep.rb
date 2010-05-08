@@ -5,7 +5,7 @@ class Dep < ActiveRecord::Base
   has_many :runs
 
   validates_presence_of :source, :name
-  validates_uniqueness_of :name, :scope => :source
+  validates_uniqueness_of :name, :scope => :source_id
 
   scope :search, lambda {|term| where(["name LIKE '%?%'", term]) }
 
