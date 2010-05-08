@@ -14,7 +14,7 @@ class Dep < ActiveRecord::Base
   end
 
   def success_rate_this_week
-    runs.this_week.where(:result => 'ok').count / runs.this_week.count
+    1.0 * runs.this_week.where(:result => 'ok').count / runs.this_week.count
   end
 
 end
