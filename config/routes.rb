@@ -1,8 +1,4 @@
 BabushkaMe::Application.routes.draw do |map|
-  resources :sources
-
-  match '/deps/search.:format/:q', :to => 'deps#search'
-  resources :deps
-
-  resources :runs
+  match '/deps/search.:format/:q', :to => 'deps#search', :conditions => {:method => :get}
+  match '/runs.:format', :to => 'runs#create', :conditions => {:method => :post}
 end
