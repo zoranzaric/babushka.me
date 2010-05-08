@@ -17,4 +17,12 @@ class Dep < ActiveRecord::Base
     1.0 * runs.this_week.where(:result => 'ok').count / runs.this_week.count
   end
 
+  def info
+    {
+      :name => name,
+      :source_url => source.url,
+      :runs_this_week => runs_this_week,
+      :success_rate_this_week => success_rate_this_week
+    }
+  end
 end
