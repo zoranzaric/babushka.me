@@ -1,0 +1,2 @@
+class DepsController < ApplicationController
+end

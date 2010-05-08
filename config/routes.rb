@@ -1,4 +1,8 @@
 BabushkaMe::Application.routes.draw do |map|
+  resources :sources
+
+  resources :deps
+
   resources :runs
 
   # The priority is based upon order of creation:

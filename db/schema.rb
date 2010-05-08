@@ -9,12 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100508065013) do
+ActiveRecord::Schema.define(:version => 20100508083018) do
+
+  create_table "deps", :force => true do |t|
+    t.integer  "source_id",                 :null => false
+    t.string   "name",       :limit => 128, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "runs", :force => true do |t|
-    t.string   "dep_name",   :limit => 128, :null => false
-    t.string   "source_url", :limit => 128, :null => false
-    t.string   "result",     :limit => 8,   :null => false
+    t.integer  "dep_id",                  :null => false
+    t.string   "result",     :limit => 8, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sources", :force => true do |t|
+    t.string   "url",        :limit => 128, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
