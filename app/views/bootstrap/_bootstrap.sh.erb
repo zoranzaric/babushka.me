@@ -35,8 +35,12 @@ function welcome {
     echo "You don't have ruby installed, so we'll take care of that first (using apt)."
   fi
   echo ""
+  <% if hard %>
+  true
+  <% else %>
   read -p "Sound good? [y/N] " f
   [[ "$f" == y* ]]
+  <% end %>
 }
 
 function install_ruby_if_required {
@@ -77,7 +81,7 @@ function stream_tarball {
 
 function handle_install {
   echo ""
-  ruby "$to/bin/babushka.rb" meet 'babushka'
+  ruby "$to/bin/babushka.rb" meet 'babushka' <%= '--defaults' if hard %>
   [ $? -eq 0 ]
 }
 
