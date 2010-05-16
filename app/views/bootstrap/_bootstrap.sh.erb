@@ -120,7 +120,7 @@ function do_bootstrap {
 
 if check; then
   if welcome; then
-    echo "Excellent."
+    echo "<%= opts[:hard] ? "Let\'s do this." : "Excellent." %>"
     echo ""
     do_bootstrap
   else
