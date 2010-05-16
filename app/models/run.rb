@@ -8,7 +8,7 @@ class Run < ActiveRecord::Base
   scope :succeeded, where(:result => 'ok')
   scope :failed, where(:result => 'failed')
   scope :crashed, where(:result => 'error')
-  scope :this_week, where(["created_at >= ? AND created_at < ?", Time.now - 1.week, Time.now])
+  scope :this_week, lambda { where(["created_at >= ? AND created_at < ?", Time.now - 1.week, Time.now]) }
 
   attr_accessor :dep_name, :source_url
   before_validation :load_dep_and_source
