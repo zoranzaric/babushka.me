@@ -1,0 +1,27 @@
+<h1>Listing runs</h1>
+
+<table>
+  <tr>
+    <th>dep name</th>
+    <th>source url</th>
+    <th>result</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @runs.each do |run| %>
+  <tr>
+    <td><%= run.dep_name %></td>
+    <td><%= run.source_url %></td>
+    <td><%= run.result %></td>
+    <td><%= link_to 'Show', run %></td>
+    <td><%= link_to 'Edit', edit_run_path(run) %></td>
+    <td><%= link_to 'Destroy', run, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Run', new_run_path %>
