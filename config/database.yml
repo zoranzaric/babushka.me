@@ -8,4 +8,8 @@ test:
 
 production:
   adapter: postgresql
-  database: babushka_me
+  database: babushka.me
+
+next:
+  adapter: postgresql
+  database: next.babushka.me
