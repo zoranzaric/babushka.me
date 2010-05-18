@@ -3,5 +3,5 @@ BabushkaMe::Application.routes.draw do |map|
   match '/runs.:format', :to => 'runs#create', :conditions => {:method => :post}
 
   match "/up", :to => "bootstrap#up", :conditions => {:method => :get}, :format => :sh
-  match "/up/:opts", :to => "bootstrap#up", :conditions => {:method => :get}, :format => :sh, :opts => /[a-z0-9\-_,]+/i
+  match "/up/:opts", :to => "bootstrap#up", :conditions => {:method => :get}, :format => :sh
 end
