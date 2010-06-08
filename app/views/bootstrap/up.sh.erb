@@ -28,10 +28,6 @@ function welcome {
   echo ""
   echo "So let's get down to business - First, downloading a temporary babushka from"
   echo "GitHub. Then, using it to properly install itself with all the trimmings."
-  <% if opts[:privately] %>
-  echo ""
-  echo "Babushka will be configured to not submit any statistics to http://babushka.me."
-  <% end %>
   echo ""
   if [ -x "`which ruby`" ]; then
     echo "You already have ruby `ruby --version | awk '{print $2}'`, so you're all set."
@@ -85,7 +81,7 @@ function stream_tarball {
 
 function handle_install {
   echo ""
-  ruby "$to/bin/babushka.rb" meet '<%= 'private ' if opts[:privately] %>babushka' <%= '--defaults' if opts[:hard] %>
+  ruby "$to/bin/babushka.rb" meet 'babushka' <%= '--defaults' if opts[:hard] %>
   [ $? -eq 0 ]
 }
 
