@@ -6,4 +6,6 @@ BabushkaMe::Application.routes.draw do |map|
 
   match "/up", :to => "bootstrap#up", :via => :get, :format => :sh
   match "/up/:opts", :to => "bootstrap#up", :via => :get, :format => :sh
+
+  match "/:id", :to => 'redirect#commit', :id => /[0-9a-f]{7}/
 end
