@@ -1,4 +1,4 @@
 source 'http://rubygems.org'
-gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '3.0.0.beta4'
 gem 'pg'
 gem 'hirb'
