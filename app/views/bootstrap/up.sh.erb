@@ -1,6 +1,6 @@
 #!/bin/bash
 
-from="http://github.com/benhoskings/babushka/tarball/master"
+from="http://babushka.me/tarballs/babushka.tgz"
 to="$HOME/.babushka/bootstrap"
 
 function true_with { echo "$1"; true; }
@@ -27,7 +27,7 @@ function welcome {
   echo "Hi there :)"
   echo ""
   echo "So, let's get down to business - first, pulling a tarball of babushka from"
-  echo "GitHub. Then, using it to run 'babushka babushka', which installs"
+  echo "http://babushka.me. Then, using it to run 'babushka babushka', which installs"
   echo "or updates babushka and its dependencies as required."
   echo ""
   if [ -x "`which ruby`" ]; then
