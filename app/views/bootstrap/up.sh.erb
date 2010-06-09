@@ -26,8 +26,9 @@ function welcome {
   echo ""
   echo "Hi there :)"
   echo ""
-  echo "So let's get down to business - First, downloading a temporary babushka from"
-  echo "GitHub. Then, using it to properly install itself with all the trimmings."
+  echo "So, let's get down to business - first, pulling a tarball of babushka from"
+  echo "GitHub. Then, using it to run 'babushka babushka', which installs"
+  echo "or updates babushka and its dependencies as required."
   echo ""
   if [ -x "`which ruby`" ]; then
     echo "You already have ruby `ruby --version | awk '{print $2}'`, so you're all set."
