@@ -7,10 +7,10 @@ function true_with { echo "$1"; true; }
 function false_with { echo "$1"; false; }
 
 function check {
-  if [ ! -x "`which ruby`" ] && [ ! -x "`which apt-get`" ]; then
+  if [ ! -x "`which ruby 2>/dev/null`" ] && [ ! -x "`which aptitude 2>/dev/null`" ] && [ ! -x "`which apt-get 2>/dev/null`" ] && [ ! -x "`which yum 2>/dev/null`" ] && [ ! -x "`which pacman 2>/dev/null`" ] && [ ! -x "`which brew 2>/dev/null`" ]; then
     echo "Sorry, you don't have ruby installed, and I only know how to install it for you"
-    false_with "on apt-based systems."
-  elif [ ! -x "`which curl`" ] && [ ! -x "`which wget`" ]; then
+    false_with "with a bunch of package managers."
+  elif [ ! -x "`which curl 2>/dev/null`" ] && [ ! -x "`which wget 2>/dev/null`" ]; then
     false_with "Sorry, you need either curl or wget installed before I can download."
   else
     true
@@ -33,7 +33,7 @@ function welcome {
   if [ -x "`which ruby`" ]; then
     echo "You already have ruby `ruby --version | awk '{print $2}'`, so you're all set."
   else
-    echo "You don't have ruby installed, so we'll take care of that first (using apt)."
+    echo "You don't have ruby installed, so we'll take care of that first (using your package manager)."
   fi
   echo ""
   <% if opts[:hard] %>
@@ -45,13 +45,38 @@ function welcome {
 }
 
 function install_ruby_if_required {
-  if [ -x "`which ruby`" ]; then
+  if [ -x "`which ruby 2>/dev/null`" ]; then
     true # already installed
   else
     echo "First we need to install ruby (via apt)."
-    sudo apt-get update -qqy
-    sudo apt-get install -qqy ruby
-    if [ ! -x "`which ruby`" ]; then
+    if [ -x "`which aptitude 2>/dev/null`" ]; then
+      sudo aptitude -y update
+      sudo aptitude -y install ruby
+    else
+      if [ -x "`which apt-get 2>/dev/null`" ]; then
+        sudo apt-get update -qqy
+        sudo apt-get install -qqy ruby
+      else
+        if [ -x "`which yum 2>/dev/null`" ]; then
+          # TODO
+          # Install using yum
+          echo "Insall using brew"
+        else
+          if [ -x "`which pacman 2>/dev/null`" ]; then
+            sudo pacman -Syq --noconfirm --noprogressbar ruby
+          else
+            if [ -x "`which brew 2>/dev/null`" ]; then
+              # TODO
+              # Install using brew
+              echo "Insall using brew"
+            else
+              echo "Can't install"
+            fi
+          fi
+        fi
+      fi
+    fi
+    if [ ! -x "`which ruby 2>/dev/null`" ]; then
       false_with "Argh, the ruby install failed."
     else
       true_with "Nice, ruby `ruby --version | awk '{print $2}'` was installed at `which ruby`."
@@ -73,9 +98,9 @@ function create_install_dir {
 }
 
 function stream_tarball {
-  if [ -x "`which curl`" ]; then
+  if [ -x "`which curl 2>/dev/null`" ]; then
     curl -L -\# "$from" | tar -zxf - --strip-components 1
-  elif [ -x "`which wget`" ]; then
+  elif [ -x "`which wget 2>/dev/null`" ]; then
     wget --progress=bar "$from" -O - | tar -zxf - --strip-components 1
   fi
 }
